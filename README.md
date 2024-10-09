@@ -20,3 +20,22 @@ The primary goal of QuickConnect is to build a Chrome extension using the wxt.de
 
 3. Or use the slider to specify the number of profiles you want to connect with.
    
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/QuickConnect.git
+   cd QuickConnect
+
+2. Install dependencies
+   ```
+   npm install
+
+3. Build
+   ```
+   npm run build
+
+4. Load the extension in Chrome:
+   - Go to chrome://extensions/
+   - Enable Developer mode
+   - Click on Load unpacked and select the build directory
