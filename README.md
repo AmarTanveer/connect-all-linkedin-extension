@@ -1,6 +1,6 @@
 # QuickConnect
 
-QuickConnect is a Chrome extension that automates sending connection requests on LinkedIn, this makes networking easier and faster. With one click, you can send connection requests to multiple profiles on LinkedIn.
+It is a Chrome extension which automatically send connection requests on LinkedIn. It makes networking easier and faster. You can send connection requests to multiple profiles on LinkedIn with just one click.
 
 ## Goal
 
