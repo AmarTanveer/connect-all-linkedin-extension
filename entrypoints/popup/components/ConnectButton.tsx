@@ -34,8 +34,6 @@ export default function ConnectButton() {
     });
   }, []);
 
-  chrome.runtime.sendMessage({ noOfProfilesToConnect });
-
   // Function to connect to only limited number of profiles
   const connectLimited = async () => {
     let [tab] = await chrome.tabs.query({ active: true });
