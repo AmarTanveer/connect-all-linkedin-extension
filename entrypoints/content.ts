@@ -25,9 +25,9 @@ export default defineContentScript({
     document.body.appendChild(button);
 
     // Handle click event for the button
-    button.addEventListener("click", () => {
+    button.addEventListener("click", async () => {
       // Select all span elements on the page
-      const spans = document.querySelectorAll("span");
+      const spans = await document.querySelectorAll("span");
 
       // Filter spans to find those with inner text "Connect"
       const connectableSpans = Array.from(spans).filter((span) => {
@@ -51,7 +51,7 @@ export default defineContentScript({
           clearInterval(connectionInterval);
           alert("All connection requests sent!");
         }
-      }, Math.random() * (3000 - 1000) + 3000); // Delay between 3-5 seconds (I chose 3-5s range just to be on the safer side)
+      }, Math.random() * (2000) + 2000); // Delay between 2-4 seconds (I chose 2-4s range just to be on the safer side)
     });
   },
 });

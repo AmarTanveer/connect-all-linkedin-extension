@@ -20,7 +20,7 @@ export default function ConnectButton() {
           const connectableSpans = Array.from(spans).filter((span) => {
             return span.innerText === "Connect";
           });
-
+          console.log("total profiles: ", connectableSpans.length);
           chrome.runtime.sendMessage({ connectableSpans });
         },
       });
@@ -65,7 +65,7 @@ export default function ConnectButton() {
             clearInterval(connectionInterval);
             alert("All connection requests sent!");
           }
-        }, Math.random() * (3000 - 1000) + 3000); // Delay between 3-5 seconds (I chose 3-5s range just to be on the safer side)
+        }, Math.random() * (2000) + 2000); // Delay between 2-4 seconds (I chose 2-4s range just to be on the safer side)
       },
       args: [noOfProfilesToConnect],
     });
@@ -100,7 +100,7 @@ export default function ConnectButton() {
             clearInterval(connectionInterval);
             alert("All connection requests sent!");
           }
-        }, Math.random() * (3000 - 1000) + 3000); // Delay between 3-5 seconds(I chose 3-5s range just to be on the safer side)
+        }, Math.random() * (2000) + 2000); // Delay between 2-4 seconds (I chose 2-4s range just to be on the safer side)
       },
       args: [totalConnectButtons]
     });
