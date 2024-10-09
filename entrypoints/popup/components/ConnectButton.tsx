@@ -1,5 +1,6 @@
 import Slider from "./Slider";
 import { useState, useEffect } from "react";
+import logo from "../../../public/icon/128.png";
 
 export default function ConnectButton() {
   const [totalConnectButtons, setTotalConnectButtons] = useState<number>(0);
@@ -28,6 +29,7 @@ export default function ConnectButton() {
     chrome.runtime.onMessage.addListener((message) => {
       if (message.connectableSpans.length > 0) {
         setTotalConnectButtons(message.connectableSpans.length);
+
       }
     });
   }, []);
@@ -45,7 +47,7 @@ export default function ConnectButton() {
         const spans = document.querySelectorAll("span");
 
         const connectableSpans = Array.from(spans).filter((span) => {
-          return span.innerText.trim() === "Connect";
+          return span.innerText === "Connect";
         });
 
         let index = 0;
@@ -79,7 +81,7 @@ export default function ConnectButton() {
 
         // Filter spans to find those with inner text "Connect"
         const connectableSpans = Array.from(spans).filter((span) => {
-          return span.innerText.trim() === "Connect";
+          return span.innerText === "Connect";
         });
 
         if (totalConnectButtons === 0) {
@@ -98,7 +100,7 @@ export default function ConnectButton() {
             clearInterval(connectionInterval);
             alert("All connection requests sent!");
           }
-        }, Math.random() * (3000 - 1000) + 3000); // Delay between 3-5 seconds (I chose 3-5s range just to be on the safer side)
+        }, Math.random() * (3000 - 1000) + 3000); // Delay between 3-5 seconds(I chose 3-5s range just to be on the safer side)
       },
       args: [totalConnectButtons]
     });
@@ -106,6 +108,10 @@ export default function ConnectButton() {
 
   return (
     <div>
+      <div className="flex items-center gap-2 mb-8 bg-blue-900 py-2 px-4 rounded-md">
+        <img src={logo} className="w-1/6" alt="Extension Logo" />
+        <p className="text-[10px] text-left"><span className="font-black text-xl text-blue-00">QuickConnect!</span><br /> Effortless Networking with a Click </p>
+      </div>
       <Slider
         max={totalConnectButtons}
         connectWithOnly={(noOfProfile) => setNoOfProfilesToConnect(noOfProfile)}

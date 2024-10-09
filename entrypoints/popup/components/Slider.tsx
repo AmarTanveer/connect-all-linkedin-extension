@@ -11,14 +11,14 @@ function Slider(props: Props) {
   return (
     <div>
         <div className="font-bold">
-        <p className="text-xs mb-3 text-blue-300">Total profiles available to connect: {props.max}</p>
+        <p className="text-sm mb-5 font-normal text-blue-300">Total profiles available to connect: {props.max}</p>
             <h1 className="text-3xl font-bold">{sliderValue}</h1>
             
         <input type="range" min={0} max={props.max} step={1} onChange={(e) => {
             const newValue = Number(e.currentTarget.value);
             setSliderValue(newValue);
             props.connectWithOnly(newValue);
-            }} className="mb-10"/>
+            }} className="mb-8"/>
            
         </div>
     </div>
